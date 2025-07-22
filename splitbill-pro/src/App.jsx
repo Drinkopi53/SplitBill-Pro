@@ -93,7 +93,16 @@ function App() {
           </div>
         )}
         {showQRCode && (
-          <QRCodeModal data={splitResult} onClose={() => setShowQRCode(false)} />
+          <QRCodeModal
+            data={{
+              amount: totalBill,
+              itemName: 'Split Bill',
+              date: new Date().toLocaleDateString(),
+              companyName: 'SplitBill Pro',
+              split: splitResult,
+            }}
+            onClose={() => setShowQRCode(false)}
+          />
         )}
         {toastMessage && (
           <Toast message={toastMessage} onClose={() => setToastMessage(null)} />
